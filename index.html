@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Văn A - Full Stack Developer</title>
+    <title>Nguyễn Anh Tuấn - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -70,12 +70,13 @@
             overflow: hidden;
             border-right: 3px solid #3b82f6;
             white-space: nowrap;
-            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
+            animation: typing 3s steps(38, end), blink-caret 0.75s step-end infinite;
         }
         
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            from { width: 0ch; }
+            to { width: 38ch; }
         }
         
         @keyframes blink-caret {
@@ -96,6 +97,80 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .project-preview {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.25s ease;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(15,23,42,0.08);
+        }
+
+        .project-card {
+            overflow: visible;
+        }
+
+        .project-card .project-preview-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+            box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+            transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.25s ease;
+        }
+
+        .project-card:hover .project-preview-wrapper {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(2,6,23,0.12);
+        }
+
+        .project-card:hover .project-preview {
+            transform: scale(1.06);
+            box-shadow: 0 18px 36px rgba(2,6,23,0.12);
+        }
+
+        /* Project card body: high-contrast dark variant */
+        .project-body {
+            background: linear-gradient(180deg, #0b1220 0%, #0f1724 100%);
+            color: #e6eef8;
+            transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .project-body h3, .project-body p {
+            color: #e6eef8;
+        }
+
+        .project-body .text-gray-600 {
+            color: #c9d7ee !important;
+        }
+
+        .project-body .bg-blue-100 {
+            background: rgba(59,130,246,0.12);
+            color: #7fc1ff;
+        }
+
+        .project-body .bg-green-100 {
+            background: rgba(34,197,94,0.10);
+            color: #9be7b3;
+        }
+
+        .project-body .bg-yellow-100 {
+            background: rgba(250,204,21,0.09);
+            color: #ffe08a;
+        }
+
+        .project-body a {
+            color: #a7d8ff;
+        }
+
+        .project-card:hover .project-body {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(2,6,23,0.12);
         }
 
         /* Modal styles for avatar preview */
@@ -213,7 +288,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 overflow-x-hidden">
+<body class="bg-gray-50 overflow-x-hidden container">
     <!-- Particles Background -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
     
@@ -229,7 +304,7 @@
                     <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">Giới thiệu</a>
                     <a href="#experience" class="text-gray-700 hover:text-blue-600 transition-colors">Kinh nghiệm</a>
                     <a href="#projects" class="text-gray-700 hover:text-blue-600 transition-colors">Dự án</a>
-                    <a href="https://zalo.me/0354293110" target="_blank" class="text-gray-700 hover:text-blue-600 transition-colors">Liên hệ</a>
+                    <a href="#contact" target="_blank" class="text-gray-700 hover:text-blue-600 transition-colors">Liên hệ</a>
                 </div>
                 <button class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
@@ -242,7 +317,7 @@
     <section id="home" class="min-h-screen gradient-bg flex items-center justify-center relative">
         <div class="container mx-auto px-6 text-center text-white">
             <div class="fade-in">
-                <div id="avatarWrapper" class="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-2xl floating">
+                <div id="avatarWrapper" class="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-2xl floating" style="box-shadow: 0 12px 30px rgba(2,6,23,0.45);">
                     <!-- Replace the src with your personal photo path (e.g., 'images/me.jpg') -->
                     <img id="heroAvatar" src="https://res.cloudinary.com/dmpjioe8c/image/upload/v1748835641/a3cc58cf-fe6c-45b9-b7ee-2be4415322c2.jpg.jpg" alt="Avatar" class="w-full h-full object-cover avatar-img cursor-pointer hover:scale-105 transition-transform" />
                     <div id="avatarMagnifier" class="magnifier" aria-hidden="true"></div>
@@ -439,7 +514,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -454,11 +529,13 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden scale-in lazy-load">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                        <i class="fas fa-link text-white text-4xl"></i>
+                <div class="project-body project-card bg-white rounded-lg shadow-lg overflow-hidden scale-in lazy-load">
+                    <div class="h-48 flex items-center justify-center bg-gray-100 overflow-hidden">
+                        <div class="project-preview-wrapper w-full h-full">
+                            <img src="https://res.cloudinary.com/dmpjioe8c/image/upload/v1758011553/bvpmobilink_pmawos.png" alt="Haravan preview" class="w-full h-full object-cover project-preview">
+                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 project-body">
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Website product via Haravan</h3>
                         <p class="text-gray-600 mb-4">Website giới thiệu sản phẩm phát triển qua Haravan.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -472,11 +549,13 @@
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden scale-in lazy-load">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                        <i class="fas fa-rocket text-white text-4xl"></i>
+                <div class="project-body project-card bg-white rounded-lg shadow-lg overflow-hidden scale-in lazy-load">
+                    <div class="h-48 flex items-center justify-center bg-gray-100 overflow-hidden">
+                        <div class="project-preview-wrapper w-full h-full">
+                            <img src="https://res.cloudinary.com/dmpjioe8c/image/upload/v1758011552/phutungxemayquangminh_nfhlx5.png" alt="Landing preview" class="w-full h-full object-cover project-preview">
+                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 project-body">
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Landing page (Quang Minh)</h3>
                         <p class="text-gray-600 mb-4">Landing page chi tiết sản phẩm, tối ưu UI/UX.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -490,11 +569,13 @@
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden scale-in lazy-load">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-                        <i class="fas fa-car text-white text-4xl"></i>
+                <div class="project-body project-card bg-white rounded-lg shadow-lg overflow-hidden scale-in lazy-load">
+                    <div class="h-48 flex items-center justify-center bg-gray-100 overflow-hidden">
+                        <div class="project-preview-wrapper w-full h-full">
+                            <img src="https://res.cloudinary.com/dmpjioe8c/image/upload/v1758011552/projectnhom15_tptedx.png" alt="Car comparison preview" class="w-full h-full object-cover project-preview">
+                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 project-body">
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Car Comparison Website (Team Project)</h3>
                         <p class="text-gray-600 mb-4">Đề tài lớn: Xây dựng Website so sánh xe ô tô. Tech: NodeJS, ReactJS, MongoDB.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -586,7 +667,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Nguyễn Văn A. Tất cả quyền được bảo lưu.</p>
+            <p>&copy; Nguyễn Anh Tuấn</p>
         </div>
     </footer>
 
@@ -733,7 +814,7 @@
         setTimeout(() => {
             const typingElement = document.querySelector('.typing');
             if (typingElement) {
-                typingElement.style.width = '100%';
+                typingElement.style.width = '30ch';
             }
         }, 1000);
 
